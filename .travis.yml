@@ -1,10 +1,16 @@
 language: node_js
 node_js:
-  - "stable"
+- stable
 cache:
   directories:
-    - node_modules
+  - node_modules
 script:
-  - npm test
-on:
+- npm test
+true:
   branch: master
+deploy:
+  provider: heroku
+  api_key:
+    secure: SHGvcXGlUFjIPFgVUKCo2KLanekNcbOHmFYYBUMKP3fQfUy/mLpQbZb3KHhuusNkWg1doaqBpSDDHQdAe8e844/32Thq/psLXaJUWeWIkDH/Y+dDXk8BziQ9Idk02vpoE5HduVIBD2oYpANBV3JzexEcmxrpCOdkMM3P+cQmP1ohH6dNW3kBLDHUSPQ4WPq+lN4Uy/4aYneQx+VPs4DRO5h4F9Gg258h1p+VTjH4wQCIEVsoQ9OwmmTtqkPyOqs0WQukBucDbRJqYpGuXXXoj9wG1NB2hMIC5Af7rfjIEmnGRUkT1cr8OPC7dkSo7RVEBTECruF1Xx8VeLWxKnsnwfwqms0wYDvtvQRH/oS7pd8lXSLn21S8+XT9RTGMZB3Yaz/Y18Mb5Uc0w4GTF2UdxQ7+hBxNL8WI1x3r57pqQJYOuU8uNYOJOfQCzIO77BjPD+VAsLGgYGmEuqN5CYWnLFPTYYEHL0HdrYdS/EwvptEI7Ro0oQej2lHjw4drHNJ3SPwKXIvWI/bmLA4tAAociwjqWuEDGu71ZllROJ0YUsgS9Vduvl3Ciem2JaYjBuVbAZlSlyRaE9O4c6/jXG4L2FrGzMtMpvAwJLW9EO4iVLTxC5VZA/jgYlvCw+XrRak1SpEI//ogLbNMOWKssA8IG3SlacxSYLYonHTNLT5hgdQ=
+  app: mission-ctrl-node
+  run: "npm start"
