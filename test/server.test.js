@@ -15,22 +15,6 @@ describe("Server Testing Example", () => {
     })
   })
 
-  it("should return OK status", () => {
-    return request(app)
-      .get("/")
-      .then((response) => {
-        assert.equal(response.status, 200);
-      });
-  });
-
-  it("should return message on rendering", () => {
-    return request(app)
-      .get("/")
-      .then((response) => {
-        expect(response.text).to.contain("Hello World");
-      });
-  });
-
   it("posting returns 200", () => {
     return request(app)
       .post("/scores")
@@ -41,7 +25,7 @@ describe("Server Testing Example", () => {
       });
   });
 
-  it("GET / return scores in decending order", async () => {
+  it("GET /scores return scores in descending order", async () => {
     const first = await request(app)
     .post("/scores")
     .send({ name: "Nigel", score: 100})
@@ -59,7 +43,6 @@ describe("Server Testing Example", () => {
       return request(app)
       .get("/scores")
       .then((response) => {
-
         expect(response.body[0].score).to.equal(100);
         expect(response.body[1].score).to.equal(90);
         expect(response.body[2].score).to.equal(80);

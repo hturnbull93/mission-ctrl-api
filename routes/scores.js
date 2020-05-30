@@ -6,7 +6,6 @@ const Score = require('../models/Score');
 router.get('/', async (req,res) => {
   try {
     const scores = await Score.find({}).sort({"score": -1})
-    // sort({ score: -1 });
     res.json(scores)
   }catch(err){
     res.json({ message: err });

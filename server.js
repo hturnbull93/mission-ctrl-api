@@ -28,15 +28,6 @@ mongoose
 const port = process.env.PORT || 5000;
 
 // Server listen
-app.get("/", (req, res) => {
-  res.send("Hello World");
-});
-
-app.post("/", (req, res) => {
-  res.send("You posted");
-});
-
-// Server listen
 app.listen(port, () => console.log(`Server listening on port ${port}`));
 
 module.exports = app;
