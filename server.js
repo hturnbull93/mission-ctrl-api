@@ -1,4 +1,5 @@
 const express = require("express");
+const cors = require('cors'); 
 const mongoose = require("mongoose");
 
 require("dotenv/config");
@@ -10,7 +11,7 @@ app.use(express.json());
 //Import Routes
 const scoresRoute = require("./routes/scores");
 
-app.use("/scores", scoresRoute);
+app.use("/scores", cors(), scoresRoute);
 
 // DB Connection
 const dbAddress =
